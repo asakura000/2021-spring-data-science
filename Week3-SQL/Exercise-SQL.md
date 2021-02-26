@@ -83,7 +83,13 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 
 1. Write a query that returns each zipcode and their population for 2000 and 2010. 
 	```
+	???????
+	???????
+	
 	[YOUR QUERY HERE]
+	
+	??????????
+	??????????
 	```
 
 ### For the next section, use the  `bigquery-public-data.google_political_ads.advertiser_weekly_spend` table.
@@ -114,7 +120,14 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 
 4. Using the `advertiser_weekly_spend` table, write a query that returns the sum of spend by week (using week_start_date) in usd for the month of August only. 
 	```
+	???????
+	???????
+	
 	[YOUR QUERY HERE]
+	
+	??????
+	??????
+	
 	```
 6.  How many ads did the 'TOM STEYER 2020' campaign run? (No need to insert query here, just type in the answer.)
 	```
