@@ -41,8 +41,14 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 
 9. Write a query that lists the top 5 complaint_description that appear most and the amount of times they appear in this table. (hint... limit)
 	```
-	[YOUR QUERY HERE]
-	  ```
+	SELECT 
+	COUNT(complaint_description) as countOfEachComplaintDescription
+	FROM `bigquery-public-data.austin_311.311_service_requests` 
+	GROUP BY complaint_description
+	ORDER BY countOfEachComplaintDescription DESC
+	LIMIT 5
+
+	```
 10. Write a query that lists and counts all the complaint_description, just for the where the owning_department is 'Animal Services Office'.
 	```
 	[YOUR QUERY HERE]
