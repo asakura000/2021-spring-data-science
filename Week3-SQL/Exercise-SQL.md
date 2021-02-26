@@ -159,7 +159,21 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 	```
 10. Which advertiser_name had the lowest average spend per ad that was at least above 0. 
 	``` 
-	[YOUR QUERY HERE]
+	WITH TEMP_TABLE AS
+	
+	(SELECT  
+  	advertiser_name,
+  	AVG(spend_usd) as avg_spent
+ 	FROM 
+   	`bigquery-public-data.google_political_ads.advertiser_weekly_spend` 
+	GROUP BY 
+  	advertiser_name)
+
+	SELECT * FROM TEMP_TABLE 
+	WHERE
+  	avg_spent > 0
+	ORDER BY avg_spent ASC
+	LIMIT 1
 	```
 ## For this next section, use the `new_york_citibike` datasets.
 
