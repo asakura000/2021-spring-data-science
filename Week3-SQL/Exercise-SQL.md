@@ -120,23 +120,22 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 
 4. Using the `advertiser_weekly_spend` table, write a query that returns the sum of spend by week (using week_start_date) in usd for the month of August only. 
 	```
-	???????
-	???????
-	
-	[YOUR QUERY HERE]
-	
-	??????
-	??????
-	
+	WITH TEMP AS (
+  	  SELECT 
+    	    week_start_date,
+    	    EXTRACT(MONTH FROM week_start_date) as month,
+    	    SUM(spend_usd) as advertiserWeeklySpend
+  	FROM 
+    	  `bigquery-public-data.google_political_ads.advertiser_weekly_spend` 
+  	GROUP BY 
+    	  week_start_date
+	)
 	SELECT 
-  	  week_start_date,
-  	  SUM(spend_usd) as moneySpentByWeek
-	FROM 
-  	  `bigquery-public-data.google_political_ads.advertiser_weekly_spend` 
-	GROUP BY 
-	  week_start_date
+	  * 
+	FROM TEMP 
+	WHERE 
+	  month = 8
   
-	
 	```
 6.  How many ads did the 'TOM STEYER 2020' campaign run? (No need to insert query here, just type in the answer.)
 	```
@@ -145,7 +144,10 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 	```
 7. Write a query that has, in the US region only, the total spend in usd for each advertiser_name and how many ads they ran. (Hint, you're going to have to join tables for this one). 
 	```
+	?????
 	[YOUR QUERY HERE]
+	?????
+	
 	```
 8. For each advertiser_name, find the average spend per ad. 
 	```
