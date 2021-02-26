@@ -148,7 +148,14 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 	```
 8. For each advertiser_name, find the average spend per ad. 
 	```
-	[YOUR QUERY HERE]
+	SELECT  
+  	  advertiser_name,
+  	  AVG(spend_usd) as avg_spent
+ 	FROM 
+   	  `bigquery-public-data.google_political_ads.advertiser_weekly_spend` 
+	GROUP BY 
+  	  advertiser_name
+	  
 	```
 10. Which advertiser_name had the lowest average spend per ad that was at least above 0. 
 	``` 
