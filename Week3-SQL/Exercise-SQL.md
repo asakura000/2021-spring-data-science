@@ -122,19 +122,16 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 	```
 	WITH TEMP AS (
   	  SELECT 
-    	    week_start_date,
-    	    EXTRACT(MONTH FROM week_start_date) as month,
-    	    SUM(spend_usd) as advertiserWeeklySpend
-  	FROM 
+    	  week_start_date,
+    	  EXTRACT(MONTH FROM week_start_date) as month,
+    	  SUM(spend_usd) as advertiserWeeklySpend
+  	  FROM 
     	  `bigquery-public-data.google_political_ads.advertiser_weekly_spend` 
-  	GROUP BY 
+  	  GROUP BY 
     	  week_start_date
 	)
-	SELECT 
-	  * 
-	FROM TEMP 
-	WHERE 
-	  month = 8
+	SELECT * FROM TEMP WHERE month = 8
+
   
 	```
 6.  How many ads did the 'TOM STEYER 2020' campaign run? (No need to insert query here, just type in the answer.)
