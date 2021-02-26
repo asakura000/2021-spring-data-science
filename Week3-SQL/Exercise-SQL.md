@@ -108,7 +108,8 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 
 3. What week_start_date had the highest spend? (No need to insert query here, just type in the answer.)
 	```
-	[YOUR ANSWER HERE]
+	2020-10-18
+	
 	```
 
 4. Using the `advertiser_weekly_spend` table, write a query that returns the sum of spend by week (using week_start_date) in usd for the month of August only. 
@@ -121,7 +122,7 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 	```
 7. Write a query that has, in the US region only, the total spend in usd for each advertiser_name and how many ads they ran. (Hint, you're going to have to join tables for this one). 
 	```
-		[YOUR QUERY HERE]
+	[YOUR QUERY HERE]
 	```
 8. For each advertiser_name, find the average spend per ad. 
 	```
