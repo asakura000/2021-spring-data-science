@@ -31,7 +31,12 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
   
 8. Write a query that counts how many times each owning_department appears in the table and orders them from highest to lowest. 
 	``` 
-	[YOUR QUERY HERE]
+	SELECT 
+	COUNT(owning_department) as counts
+	FROM `bigquery-public-data.austin_311.311_service_requests` 
+	GROUP BY owning_department
+	ORDER BY counts DESC
+	
 	```
 
 9. Write a query that lists the top 5 complaint_description that appear most and the amount of times they appear in this table. (hint... limit)
