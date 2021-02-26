@@ -89,11 +89,21 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 ### For the next section, use the  `bigquery-public-data.google_political_ads.advertiser_weekly_spend` table.
 1. Using the `advertiser_weekly_spend` table, write a query that finds the advertiser_name that spent the most in usd. 
 	```
-	[YOUR QUERY HERE]
+	SELECT  
+  	  advertiser_name,
+  	  spend_usd
+	FROM 
+  	  `bigquery-public-data.google_political_ads.advertiser_weekly_spend` 
+	ORDER BY spend_usd DESC 
+	LIMIT 1
+	
 	```
 2. Who was the 6th highest spender? (No need to insert query here, just type in the answer.)
 	```
-	[YOUR ANSWER HERE]
+	DONALD J. TRUMP FOR PRESIDENT, INC.
+	7464400
+	AR105500339708362752
+
 	```
 
 3. What week_start_date had the highest spend? (No need to insert query here, just type in the answer.)
