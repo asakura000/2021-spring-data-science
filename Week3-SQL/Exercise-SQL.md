@@ -128,6 +128,15 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 	??????
 	??????
 	
+	SELECT 
+  	  week_start_date,
+  	  SUM(spend_usd) as moneySpentByWeek
+	FROM 
+  	  `bigquery-public-data.google_political_ads.advertiser_weekly_spend` 
+	GROUP BY 
+	  week_start_date
+  
+	
 	```
 6.  How many ads did the 'TOM STEYER 2020' campaign run? (No need to insert query here, just type in the answer.)
 	```
