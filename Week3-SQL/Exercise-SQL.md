@@ -179,7 +179,14 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 
 1. Who went on more bike trips, Males or Females?
 	```
-	[YOUR QUERY HERE]
+	SELECT
+  	  gender,
+  	  COUNT(gender) as counts
+	FROM 
+	  `bigquery-public-data.new_york_citibike.citibike_trips` 
+	GROUP BY 
+  	  gender
+	  
 	```
 2. What was the average, shortest, and longest bike trip taken in minutes?
 	```
