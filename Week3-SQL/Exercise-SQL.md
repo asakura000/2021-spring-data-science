@@ -141,9 +141,24 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 	```
 7. Write a query that has, in the US region only, the total spend in usd for each advertiser_name and how many ads they ran. (Hint, you're going to have to join tables for this one). 
 	```
-	?????
-	[YOUR QUERY HERE]
-	?????
+	WITH TABLE_AD_WEEKLY_SPEND AS (
+	SELECT 
+  	COUNT(advertiser_name) numberAds,
+  	advertiser_name
+	FROM 
+  	`bigquery-public-data.google_political_ads.advertiser_weekly_spend` 
+	GROUP BY 
+  	advertiser_name
+	),
+	TABLE_AD_STATS AS (
+	SELECT 
+	* 
+	FROM 
+	`bigquery-public-data.google_political_ads.advertiser_stats` 
+	WHERE 
+  	regions = 'US' 
+	)
+	SELECT A.advertiser_name, numberAds, B.regions FROM TABLE_AD_WEEKLY_SPEND  as A JOIN TABLE_AD_STATS  as B ON A.advertiser_name = B.advertiser_name
 	
 	```
 8. For each advertiser_name, find the average spend per ad. 
