@@ -83,13 +83,25 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 
 1. Write a query that returns each zipcode and their population for 2000 and 2010. 
 	```
-	???????
-	???????
-	
-	[YOUR QUERY HERE]
-	
-	??????????
-	??????????
+	WITH TABLE_2000 AS (
+  	SELECT  
+    	zipcode,
+    	SUM(population) as pop2000
+  	FROM 
+   	 `bigquery-public-data.census_bureau_usa.population_by_zip_2000` 
+  	GROUP BY 
+    	zipcode
+	),
+	TABLE_2010 AS(
+  	SELECT 
+   	zipcode,
+    	SUM(population) as pop2010
+  	FROM 
+    	`bigquery-public-data.census_bureau_usa.population_by_zip_2010`
+  	GROUP BY 
+    	zipcode
+	) SELECT A.zipcode, A.pop2000, B.pop2010  FROM TABLE_2000 as A JOIN TABLE_2010 as B ON A.zipcode = B.zipCode
+
 	```
 
 ### For the next section, use the  `bigquery-public-data.google_political_ads.advertiser_weekly_spend` table.
