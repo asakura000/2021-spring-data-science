@@ -212,12 +212,29 @@ For this section of the exercise we will be using the `bigquery-public-data.aust
 	FROM 
   	 `bigquery-public-data.new_york_citibike.citibike_trips` 
 
-
 	```
 
 3. Write a query that, for every station_name, has the amount of trips that started there and the amount of trips that ended there. (Hint, use two temporary tables, one that counts the amount of starts, the other that counts the number of ends, and then join the two.) 
 	```
-	[YOUR QUERY HERE]
+	WITH TBL_START AS (
+  	SELECT  
+    	start_station_name as station,
+    	COUNT(start_station_name) as countStart
+  	FROM 
+    	`bigquery-public-data.new_york_citibike.citibike_trips` 
+  	GROUP BY 
+   	 station
+  	),
+	TBL_END AS (
+  	SELECT 
+    	end_station_name as station,
+    	COUNT(end_station_name) as countEnd
+  	FROM 
+    	`bigquery-public-data.new_york_citibike.citibike_trips` 
+  	GROUP BY 
+    	station
+	)
+	SELECT A.station, countStart , B.countEnd  FROM TBL_START as A JOIN TBL_END as B ON A.station  = B.station 
 	```
 # The next section is the Google Colab section.  
 1. Open up this [this Colab notebook](https://colab.research.google.com/drive/1kHdTtuHTPEaMH32GotVum41YVdeyzQ74?usp=sharing).
